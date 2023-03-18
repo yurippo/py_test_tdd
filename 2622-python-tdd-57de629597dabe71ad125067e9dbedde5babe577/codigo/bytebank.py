@@ -45,3 +45,9 @@ class Funcionario:
     #ela pediu a nossa ajuda ajuda-la a decifrar alguns termos outros devs mais experientes falam
     #sobre testes, TDD, Testes Unitarios o chefe dela fala vamos desenvolver alguma coisa utilizando testes
     #a metodologia do TDD e ela nao sabe o que eh isso e nesse curso vamos ajudar ela, revisar os projetos dela
+
+    #vamos iniciar um ambiente virtual para nao haver conflitos entre nossos projetos Python
+    #primerio venv faz mencao ao ambiente virtual e segundo venv e o nome que quero dar ao ambiente virtual
+    #Spode ser o que eu quiser e existe essa convencao venv
+
+    #python3 -m venv venv
