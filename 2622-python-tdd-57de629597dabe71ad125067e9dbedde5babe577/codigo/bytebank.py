@@ -30,7 +30,7 @@ class Funcionario:
 
     def __str__(self):
         return f'Funcionario({self._nome}, {self._data_nascimento}, {self._salario})'
-    
+        
 
     #Historia da Dominique
 
@@ -51,3 +51,16 @@ class Funcionario:
     #Spode ser o que eu quiser e existe essa convencao venv
 
     #python3 -m venv venv
+
+    #podemos ver agora o nosso novo diretorio venv
+
+    #mas ainda nao ta funcionando entao precisamos ativar esse ambiente virtual
+    #source venv/bin/activate para windows apenas activate
+    #scripts execution estava desativado tive que run powershell como admin e mudar policy para
+    # Set-ExecutionPolicy unrestricted depois A e reolvido
+    #ai rodei  venv\Scripts\activate e funcionou venv finalmente ativada
+    #agora que ja criamos um ambiente virtual podemos testar o codigo da Dominique
+    # ai dentro da pasta codigo vamos criar o arquivo main.py e dentro de main vamos criar 
+    # um objeto para testar a class Funcionario de bytebank.py
+
+
