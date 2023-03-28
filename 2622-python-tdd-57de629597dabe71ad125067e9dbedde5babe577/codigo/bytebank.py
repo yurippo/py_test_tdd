@@ -11,14 +11,38 @@ class Funcionario:
         return self._nome
 
     @property
+
     def salario(self):
         return self._salario
 
 #um metodo que captura a data de nascimento de um funcionario e pega o ano atual
-# pra calcular a idade do funcionario
+# pra calcular a idade do funcionario que nao esta funcionando bem
+#pq data de nascimento tem ano mes e dia nao somente ano set testamos com uma String por exemplo
+#'13/03/2000' o codigo quebra e pra resolver isso agora vamos recriar esse metodo e fazer com que ele se torne funcional
+#novamente primeiro passo sera quebrar a data de nascimento em 3 uma lista com 3 itens o primerio item sendo o dia
+#o segundo item sendo o mes e o terceiro dia sendo o ano o novo metodo sera reescrito abaixo
+
+    # def idade(self):
+    #     ano_atual = date.today().year
+    #     return ano_atual - int(self._data_nascimento)
+
     def idade(self):
+        #o split e um metodo do Python pra formatar Strings com o metodo vamos quebrar a String em determinados pontos
+        #e retornar com isso uma lista com as partes quebradas dessa String vamos passar no split('/') o caracter usado para
+        #fazer a quebra no caso '/' e com isso vamos ter uma lista com dia mes e ano
+        data_nascimento_quebrada = self._data_nascimento.split('/')
+        #agora vamos criar uma nova variavel ano_nascimento e vamos igualar essa variavel ao ultimo item da minha lista
+        # que e a data_nascimento_quebrada e abro o colchete e coloco o [-1] que sempre vai pegar o ultimo item da lista
+        #no nosso caso o ano
+        ano_nascimento = data_nascimento_quebrada[-1]
+
         ano_atual = date.today().year
-        return ano_atual - int(self._data_nascimento)
+        # e no return vamos colocar ano_atual - int(self.ano_quebrado)
+        return ano_atual - int(ano_nascimento)
+        #essas alteracoes devem fazer a funcao funcionar e fazer rodar o nosso codigo la no main
+        #vamos testar  de novo
+
+    
 
     def calcular_bonus(self):
         valor = self._salario * 0.1

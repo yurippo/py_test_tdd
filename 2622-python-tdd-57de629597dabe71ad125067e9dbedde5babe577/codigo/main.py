@@ -26,11 +26,43 @@ lucas = Funcionario('Lucas Carvalho','13/03/2000',1000)
 
 #tem um erro nesse codigo a regra de negocio ta falha ta quebrada precisamos concertar isso 
 
-print(lucas)
-print(lucas.idade())
 
 #mas se pensarmos bem essa regra de negocios ta meio estranha o que o funcionario
 #precisa informar e a data de nascimento dele que nao e composta so pelo ano tem o dia e o mes tambem
+#Depois de alterarmos o metodo def idade na classe bytebank.py e retestarmos aqui na main ela funcionou
+#retornou a idade de Lucas bacaninha sem problemas
+
+#so que o nosso codigo de teste ta muito jogado e o chefe pediu para nos transformarmos esse codigo 
+#em um teste automatizado mesmo vamos trabalhar nisso entao
+#Comentando o codigo do teste anterior
+# print(lucas)
+# print(lucas.idade())
+#vamos criar o novo teste agora
+
+#vamos criar o metodo def test_idade() e vou instanciar um novo funcionario dentro do metodo
+
+def teste_idade():
+    funcionario_teste = Funcionario('Teste','13/03/2000',1111)
+    print(f'Teste = {funcionario_teste.idade()}')
+
+#acabei de criar um teste automatizado logo acima
+#e com isso ja temos um teste automatizado que esta dentro do metodo acima como podemos ver
+# poderiamos inclusive implementar outras logicas mirabolantes para testar o codigo da Dominique#
+
+teste_idade()
+#chamando o teste para testar
+#Teste = 23 Funcionou!
+    
+
+
+
+
+
+
+
+
+
+
 
 
 
