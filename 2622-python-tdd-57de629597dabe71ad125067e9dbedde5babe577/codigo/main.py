@@ -44,8 +44,25 @@ lucas = Funcionario('Lucas Carvalho','13/03/2000',1000)
 def teste_idade():
     funcionario_teste = Funcionario('Teste','13/03/2000',1111)
     print(f'Teste = {funcionario_teste.idade()}')
+#inclusive poderia testar outros cenarios tbm
+    funcionario_teste1 = Funcionario('Teste','13/03/1999',1111)
+    print(f'Teste = {funcionario_teste1.idade()}')
+#e agora vou criar uma outra situacao em que nao apenas o ano muda mas o mes tbm
+    funcionario_teste2 = Funcionario('Teste','01/12/1999',1111)
+    print(f'Teste = {funcionario_teste2.idade()}')
+#Beleza os testes funcionaram o Python mostrou os resultados para nos mas o problema e que isso acaba ficando muito extenso
+#quando nos queremos testar muitos scenarios fica estranho colocar isso direto em um arquivo para isso existe uma ferramenta que vai
+#melhorar a construcoes dos nossos testes e essa ferramenta no caso se chama Pytest e vamos comecar ver isso mais a fundo
 
-#acabei de criar um teste automatizado logo acima
+# Teste = 23
+# Teste = 24
+# Teste = 24
+
+
+
+
+#acabei de criar um teste automatizado logo acima, um teste unitario ou unit test
+#pq ele ta testando uma pequena parte do codigo da Dominique
 #e com isso ja temos um teste automatizado que esta dentro do metodo acima como podemos ver
 # poderiamos inclusive implementar outras logicas mirabolantes para testar o codigo da Dominique#
 

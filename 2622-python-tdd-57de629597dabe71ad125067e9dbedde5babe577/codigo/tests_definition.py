@@ -84,3 +84,42 @@
 # Ao executar o arquivo, vamos obter o resultado esperado, porém o código ficou extenso e seria inconveniente incluir
 # mais trechos diretamente no código a cada novo cenário que quiséssemos testar. Para melhorar a construção dos nossos testes,
 # usaremos uma ferramenta chamada Pytest. Vamos conhecê-la 
+
+#Teste Manual vs. Automatizado
+
+# Existem profissionais de qualidade e analistas dedicados exclusivamente ao ramo de testes manuais.
+# Mesmo assim, em alguns casos particulares, o uso de testes automatizados se faz mais relevante.
+
+# Eis algumas das principais vantagens no uso de testes automatizados:
+
+#Testes automatizados são mais rápidos
+# Uma vez que já estão escritos, basta que sejam executados e,
+# poucos segundos depois, já se tem o resultado positivo ou negativo daquilo que se está testando
+
+#Testes automatizados são mais confiáveis
+# Uma vez que são criados através de ferramentas e scripts que impõem um padrão de construção específico
+# para todos, bem como, não ficam sujeitos a erro humano, já que não é necessária a supervisão humana em
+# cada etapa do processo de execução do teste
+
+#Testes automatizados são mais baratos?
+# Nem sempre isso é uma realidade e, na maioria das vezes, testes automatizados são mais caros.
+# Já que os testes dependem de níveis de automatização, isso pode levar à utilização de ferramentas
+# mais específicas de criação de scripts e testes. Gerando mais custos.
+
+#Testes automatizados são adaptáveis a contextos de produção?
+# Esse é um dos escopos em que o teste manual obtém vantagem sobre o teste automatizado.
+# Por serem realizados por um profissional que está a todo tempo supervisionando o ambiente de produção,
+# os testes manuais acabam sendo mais elegíveis a se adaptarem às variáveis que possam surgir na utilização
+# do projeto pelo usuário
+
+#Para saber mais: mais sobre testes
+#O conceito da utilização de testes no mundo de desenvolvimento de software é
+# explorado extensivamente no mercado de trabalho de diversas linguagens de programação.
+# Temos dois artigos que se estendem no conteúdo de testes em software
+
+# Tipos de testes: quais os principais e por que utilizá-los?
+# https://www.alura.com.br/artigos/tipos-de-testes-principais-por-que-utiliza-los
+
+# Por que e o que é possível testar?
+# https://www.alura.com.br/artigos/por-que-e-o-que-e-possivel-testar
+
