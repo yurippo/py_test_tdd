@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./2622-python-tdd-57de629597dabe71ad125067e9dbedde5babe577/codigo"
+    ]
+}

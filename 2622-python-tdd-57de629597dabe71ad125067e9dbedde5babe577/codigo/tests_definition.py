@@ -14,7 +14,7 @@
 # No início do desenvolvimento, enquanto o projeto ainda está pequeno, é fácil julgar se o código respeita
 # ou não as regras de negócio. Porém, conforme o projeto crescer, a hierarquia do projeto aumentar, existir mais módulos,
 # classes e métodos, e surgir mais regras de negócio, logo cada funcionalidade terá que respeitar inúmeras regras!
-# É neste ponto que entra o processo de testes.S
+# É neste ponto que entra o processo de testes
 
 # O teste verifica se cada funcionalidade está se comportando como deveria, garantindo um desempenho de maior
 # qualidade dos códigos. Inclusive, há pessoas que são contratadas para se dedicarem em tempo integral apenas

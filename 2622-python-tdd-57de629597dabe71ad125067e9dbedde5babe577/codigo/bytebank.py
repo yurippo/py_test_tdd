@@ -42,7 +42,10 @@ class Funcionario:
         #essas alteracoes devem fazer a funcao funcionar e fazer rodar o nosso codigo la no main
         #vamos testar  de novo
 
-    
+    def sobrenome(self):
+        nome_completo = self.nome.strip() #o strip vai tirar os espacos em branco antes e depois do nome caso existam
+        nome_quebrado = nome_completo.split(' ') #vai separar e gerar uma lista do nome completo da pessoa quebrando no espaco ''
+        return nome_quebrado[-1] #vai retornar o ultimo nome da lista
 
     def calcular_bonus(self):
         valor = self._salario * 0.1
@@ -87,4 +90,19 @@ class Funcionario:
     # ai dentro da pasta codigo vamos criar o arquivo main.py e dentro de main vamos criar 
     # um objeto para testar a class Funcionario de bytebank.py
 
+    #Testes Automatizdos
+
+    # Nesse projeto conhecemos a história da Dominique e nos familiarizamos com o projeto desenvolvido por ela até então.
+    # Em seguida criamos nosso primeiro teste automatizado, aprendendo um pouco sobre o que são testes e por que são tão
+    # importantes para o desenvolvimento de projetos.
+
+#O que aprendemos nesse projeto?
+
+# A importância da utilização de um ambiente virtual em projetos Python e como criar um
+# através do comando python3 -m venv venv, ativando-o em seguida com o comando source venv/bin/activate;
+# A estrutura mínima de um teste automatizado, sendo ela: a compreensão da regra de negócio, um valor a ser
+# recebido e uma informação a ser retornada, tudo dentro de um método;
+# Testes são importantes para o desenvolvimento de um projeto porque acabam por criar um “roadmap”
+# das regras de negócio que a aplicação deve obedecer, além de constantemente incentivar a refatoração (melhoria) do código;
+# Há os seguintes tipos principais de testes: Testes unitários, testes de integração e testes “End-to-end” (Ponta-a-ponta).
 
