@@ -28,7 +28,7 @@ class TestClass:
 
         assert result == expected
 
-#Aora vamos rodar o test com o comando pytest -v no terminal que nos retornou o resultado os 2 testes passaram
+#Agora vamos rodar o test com o comando pytest -v no terminal que nos retornou o resultado os 2 testes passaram
 
 # (venv) PS C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd> pytest -v
 # ======================================================================= test session starts ========================================================================
@@ -42,6 +42,84 @@ class TestClass:
 
 # ======================================================================== 2 passed in 0.02s =========================================================================
 # (venv) PS C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd> 
+
+
+    def test_when_salary_reduction_receives_1000000_should_return_90000(self):
+        entrada_salario = 100000 #given
+        entrada_nome = 'Paulo Bragança'
+        esperado = 90000
+
+        funcionario_teste = Funcionario(entrada_nome, '11/11/2000', entrada_salario)
+        funcionario_teste.decrescimo_salario() # when
+        resultado = funcionario_teste.salario
+
+        assert resultado == esperado  # then
+
+        #Now let's run the test on the terminal with pytest -v and see what happens
+
+        # The test failed of course the method wasn't implemented yet result:
+
+# (venv) PS C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd> pytest -v
+# ======================================================================= test session starts ========================================================================
+# platform win32 -- Python 3.10.11, pytest-7.2.2, pluggy-1.0.0 -- C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd\venv\Scripts\python.exe
+# cachedir: .pytest_cache
+# rootdir: C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd
+# collected 3 items
+
+# pyfolder/tests/test_bytebank.py::TestClass::test_when_age_receives_13_03_2000_should_return_23 PASSED                                                         [ 33%]
+# pyfolder/tests/test_bytebank.py::TestClass::test_when_lastname__receives_Lucas_Carvalho_should_return_Carvalho PASSED                                         [ 66%]
+# pyfolder/tests/test_bytebank.py::TestClass::test_when_salary_reduction_receives_1000000_should_return_90000 FAILED                                            [100%]
+
+# ============================================================================= FAILURES =============================================================================
+# ____________________________________________ TestClass.test_when_salary_reduction_receives_1000000_should_return_90000 _____________________________________________
+
+# self = <tests.test_bytebank.TestClass object at 0x000001ED6889F880>
+
+#     def test_when_salary_reduction_receives_1000000_should_return_90000(self):
+#         entry_salary = 100000 #Given - Context
+#         entry_name = 'Paulo Braganca'
+#         expected = 90000
+
+# >       funcionario_teste = Funcionario(entry_name,'Teste','11/11/2000',entry_salary)
+# E       TypeError: Funcionario.__init__() takes 4 positional arguments but 5 were given
+
+# pyfolder\tests\test_bytebank.py:52: TypeError
+# ===================================================================== short test summary info ====================================================================== 
+# FAILED pyfolder/tests/test_bytebank.py::TestClass::test_when_salary_reduction_receives_1000000_should_return_90000 - TypeError: Funcionario.__init__() takes 4 positional arguments but 5 were given
+# =================================================================== 1 failed, 2 passed in 0.17s ==================================================================== 
+# (venv) PS C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd> 
+
+
+#Now let's test again after the new method was implemented in bytebank.py
+
+# def decrescimo_salario(self):
+#         sobrenomes = ['Bragança', 'Windsor', 'Bourbon', 'Yamato', 'Al Saud', 'Khan', 'Tudor', 'Ptolomeu']
+#         if self._salario >= 100000 and (self.sobrenome() in sobrenomes): #to verify if salary >= 100000 and lastname included in the lastname list
+#             decrescimo = self._salario * 0.1
+#             self._salario = self._salario - decrescimo
+
+
+#Now let's run the test on the terminal again with pytest -v and see what happens after the method implementation (the tests finaly passed)
+
+# (venv) PS C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd> pytest -v
+# ======================================================================= test session starts ========================================================================
+# platform win32 -- Python 3.10.11, pytest-7.2.2, pluggy-1.0.0 -- C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd\venv\Scripts\python.exe
+# cachedir: .pytest_cache
+# rootdir: C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd
+# collected 3 items
+
+# pyfolder/tests/test_bytebank.py::TestClass::test_when_age_receives_13_03_2000_should_return_23 PASSED                                                         [ 33%] 
+# pyfolder/tests/test_bytebank.py::TestClass::test_when_lastname__receives_Lucas_Carvalho_should_return_Carvalho PASSED                                         [ 66%] 
+# pyfolder/tests/test_bytebank.py::TestClass::test_when_salary_reduction_receives_1000000_should_return_90000 PASSED                                            [100%] 
+
+# ======================================================================== 3 passed in 0.05s ========================================================================= 
+# (venv) PS C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd> 
+
+
+
+
+
+
 
 
 
@@ -278,5 +356,21 @@ class TestClass:
 # Será que poderíamos fazer esse processo de forma invertida: gerar
 # o teste e depois o método? Essa questão dialoga com o conceito de TDD. Na próxima aula, vamos estudar esse assunto.
 
+#Para saber mais: mais sobre o Pytest
+
+# O Pytest possui diversas ferramentas que facilitam e otimizam a criação de testes automatizados.
+# Confira o artigo a seguir e explore diferentes cenários de teste com o Pytest:
+
+# https://www.alura.com.br/artigos/montando-cenarios-de-testes-com-o-pytest
+
+
+#Nesse projeto aprendemos que
+
+# O Pytest é o mais utilizado framework de Python dedicado a testes do mercado,
+# sendo altamente escalável e repleto de plugins e extensões;
+# Criar um teste utilizando o Pytest e entendendo que os nomes de cada cada arquivo
+# de testes devem conter prefixos específicos para que sejam levados em consideração pelo Pytest;
+# Testes devem possuir o nome mais verboso o possível;
+# Utilizar o método ágil Given-When-Then para a construção de testes.
 
 

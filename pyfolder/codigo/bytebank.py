@@ -52,7 +52,13 @@ class Funcionario:
         if valor > 1000:
             valor = 0
         return valor
-
+    
+    def decrescimo_salario(self):
+        sobrenomes = ['Bragança', 'Windsor', 'Bourbon', 'Yamato', 'Al Saud', 'Khan', 'Tudor', 'Ptolomeu']
+        if self._salario >= 100000 and (self.sobrenome() in sobrenomes): #to verify if salary >= 100000 and lastname included in the lastname list
+            decrescimo = self._salario * 0.1
+            self._salario = self._salario - decrescimo
+ 
 #Funcao __str__ que devolve as informacoes completas do objeto quando agente cria
 
     def __str__(self):
