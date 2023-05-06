@@ -1,0 +1,16 @@
+[run]
+
+#source = ./codigo
+
+[report]
+
+exclude_lines = 
+     def __str__
+
+[html]
+
+directory = coverage_relatorio_html
+
+# pytest --junitxml report.xml to generate a xml report 
+
+#pytest --cov-report xml to generate a report about cov

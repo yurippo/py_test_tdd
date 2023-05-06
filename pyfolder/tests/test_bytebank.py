@@ -1,4 +1,7 @@
+import pytest
 from codigo.bytebank import Funcionario
+from pytest import mark
+
 class TestClass:
     #a good practice for the tests names is it be as much verdose as possible that means explaining everything
     #and now we're going to use a test methodology called GIVEN-WHEN-THEN and Agile Methodology to develop tests
@@ -17,6 +20,12 @@ class TestClass:
 
         assert result == expected #Then - that's the outcome of the test the end and result now my test is ready
          # the method assert from Pytest will determine if What I'm saying here is right or not
+
+         #I can run this test on the terminal filtering by the word age with the command
+
+         #pytest -k age less verbose
+
+         #pytest -v -k age more verbose
 
 
     def test_when_lastname__receives_Lucas_Carvalho_should_return_Carvalho(self):
@@ -43,6 +52,7 @@ class TestClass:
 # ======================================================================== 2 passed in 0.02s =========================================================================
 # (venv) PS C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd> 
 
+    #@mark.skip #to run all the other tests and skip this one
 
     def test_when_salary_reduction_receives_1000000_should_return_90000(self):
         entrada_salario = 100000 #given
@@ -118,9 +128,71 @@ class TestClass:
 
 
 
+#Testando o metodo def calcular_bonus(self):
+
+#@mark.calculate_bonus #this a mark a decorator a tag created to run only specific test
+#When we call the tag on terminal using  pytest -v -m calculate_bonus
+
+def test_when_calculate_bonus_receives_1000_should_return_100():
+    entrada = 1000 #given
+    esperado = 100
+
+    funcionario_teste = Funcionario('teste', '11/11/2000', entrada)
+    resultado = funcionario_teste.calcular_bonus() #When
+
+    assert resultado == esperado  # then que compara o resultado com o esperado
+
+    #agora vamos rodar o pytest -v para verificar se o teste vai passar our nao
+#     e o test passou beleza
+    
+#Agora vamos construir um test que vai levar em consideracao um exception
+
+#@mark.calculate_bonus
+def test_quando_calcular_bonus_recebe_100000000_deve_retornar_exception():
+ with pytest.raises(Exception):
+
+     entrada = 100000000  # given
+        
+     funcionario_teste = Funcionario('teste', '11/11/2000', entrada)
+     resultado = funcionario_teste.calcular_bonus()  # when
+     assert resultado # then
+    
+          
+
+    #O Pytest nos da uma ferramenta para quando o que tem que sair e uma Exception o with pytest.raises(Exception):
+    #no final desse codigo tem que levar a uma Exception
+
+    #vamos pegar de novo aquele modelo que tinhamos acima e construir o teste
+    
+    # == esperado  # then nesse caso o resultado nao sera comaprado com esperado sera so assert resultado por causa da exception
+    #dessa forma como escrevemos o teste podemos testar o exception agora vamos rodar o teste com o pytest -v
+
+#     (venv) PS C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd> pytest -v
+# ==================================================================== test session starts =====================================================================
+# platform win32 -- Python 3.10.11, pytest-7.2.2, pluggy-1.0.0 -- C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd\venv\Scripts\python.exe        
+# cachedir: .pytest_cache
+# rootdir: C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd
+# collected 4 items
+
+# pyfolder/tests/test_bytebank.py::TestClass::test_when_age_receives_13_03_2000_should_return_23 PASSED                                                   [ 25%] 
+# pyfolder/tests/test_bytebank.py::TestClass::test_when_lastname__receives_Lucas_Carvalho_should_return_Carvalho PASSED                                   [ 50%] 
+# pyfolder/tests/test_bytebank.py::TestClass::test_when_salary_reduction_receives_1000000_should_return_90000 PASSED                                      [ 75%] 
+# pyfolder/tests/test_bytebank.py::test_when_calculate_bonus_receives_1000_should_return_100 PASSED                                                       [100%] 
+
+# ===================================================================== 4 passed in 0.07s ====================================================================== 
 
 
+#Este teste estou comentando pq nao faz sentido testarmos metodos e funcionalidades da linguagem Python
+#e sim metodos e funcionalidades, regras de negocios que nos criamos como programadores
+#  def test_retorno_str(self):
+#     nome, data_nascimento,salario = 'Teste','12/03/2000',100 #given
+#     esperado = 'Funcionario(Teste,12/03/2000,1000)'
+  
 
+#     funcionario_teste = Funcionario(nome,data_nascimento,salario)
+#     funcionario_teste.__str__() # when
+    
+#     assert resultado == esperado #then
 
 
 # Antes de "traduzir" o teste do main.py para como ele ficaria quando utilizamos o Pytest (o framework de testes do Python), vamos relembrar qual é o contexto de teste_idade e qual sua finalidade.
@@ -374,3 +446,54 @@ class TestClass:
 # Utilizar o método ágil Given-When-Then para a construção de testes.
 
 
+#Vamos usar o comando pip install pytest-cov==3.0.0 que nos retornou
+
+#entao vamos rodar o comando pytest --cov que vai procurar testes em todos os cantos do codigo
+
+# (venv) PS C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd> pytest --cov
+# =========================================================================================== test session starts ===========================================================================================
+# platform win32 -- Python 3.10.11, pytest-7.2.2, pluggy-1.0.0
+# rootdir: C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd
+# plugins: base-url-2.0.0, cov-3.0.0, playwright-0.3.3
+# collected 5 items
+
+# pyfolder\tests\test_bytebank.py .....                                                                                                                                                                [100%] 
+
+# ============================================================================================ warnings summary ============================================================================================= 
+# venv\lib\site-packages\pytest_cov\plugin.py:256
+#   C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd\venv\lib\site-packages\pytest_cov\plugin.py:256: PytestDeprecationWarning: The hookimpl CovPlugin.pytest_configure_node uses old-style configuration options (marks or attributes).
+#   Please use the pytest.hookimpl(optionalhook=True) decorator instead
+#    to configure the hooks.
+#    See https://docs.pytest.org/en/latest/deprecations.html#configuring-hook-specs-impls-using-markers
+#     def pytest_configure_node(self, node):
+
+# venv\lib\site-packages\pytest_cov\plugin.py:265
+#   C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd\venv\lib\site-packages\pytest_cov\plugin.py:265: PytestDeprecationWarning: The hookimpl CovPlugin.pytest_testnodedown uses old-style configuration options (marks or attributes).
+#   Please use the pytest.hookimpl(optionalhook=True) decorator instead
+#    to configure the hooks.
+#    See https://docs.pytest.org/en/latest/deprecations.html#configuring-hook-specs-impls-using-markers
+#     def pytest_testnodedown(self, node, error):
+
+# pyfolder\tests\test_bytebank.py:133
+#   C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd\pyfolder\tests\test_bytebank.py:133: PytestUnknownMarkWarning: Unknown pytest.mark.calculate_bonus - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+#     @mark.calculate_bonus #this a mark a decorator a tag created to run only specific test
+
+# pyfolder\tests\test_bytebank.py:150
+#   C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd\pyfolder\tests\test_bytebank.py:150: PytestUnknownMarkWarning: Unknown pytest.mark.calculate_bonus - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+#     @mark.calculate_bonus
+
+# -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+
+# ---------- coverage: platform win32, python 3.10.11-final-0 ----------
+# Name                              Stmts   Miss  Cover
+# -----------------------------------------------------
+# pyfolder\codigo\bytebank.py          35      1    97%
+# pyfolder\tests\__init__.py            7      5    29%
+# pyfolder\tests\test_bytebank.py      38      1    97%
+# -----------------------------------------------------
+# TOTAL                                80      7    91%
+
+# ====================================================================================== 5 passed, 4 warnings in 0.21s ====================================================================================== 
+# (venv) PS C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd> 
+
+#agora vamos rodar o pytest --cov=py_test_tdd\pyfolder\tests para pegar os testes soh do diretorio que queremos

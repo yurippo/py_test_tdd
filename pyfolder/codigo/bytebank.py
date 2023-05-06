@@ -46,18 +46,53 @@ class Funcionario:
         nome_completo = self.nome.strip() #o strip vai tirar os espacos em branco antes e depois do nome caso existam
         nome_quebrado = nome_completo.split(' ') #vai separar e gerar uma lista do nome completo da pessoa quebrando no espaco ''
         return nome_quebrado[-1] #vai retornar o ultimo nome da lista
+    
+    #we were negleting this method and it's also time to work on that we're gonna verify if this method makes sense
+    #according to the business rules and we're also gonna create a test for it but boss also asked us to change this
+    #method and thrown an exception a personalized error in Python so we'll do below
+
+    # def calcular_bonus(self):
+    #     valor = self._salario * 0.1
+    #     if valor > 1000:
+    #         valor = 0
+    #     return valor
+    
+
+    #now we're rebuilding the def calcular_bonus(self) throwing an exception instead of returning 0 When
+    #the person is not eligible for the bonus there are 2 types of errors in Python Syntax error and
+    # the exceptions or runtime errors
 
     def calcular_bonus(self):
         valor = self._salario * 0.1
         if valor > 1000:
-            valor = 0
+            raise Exception('O salario e muito alto para receber um bonus') #here we created our exception and this interesting in some moments we're developing a code
         return valor
     
+    #this method discovers if the person is a director once this will only be used inside of the class
+    #we'll make it private using _ 
+    #we are refactoring our code the method def decrescimo_salario(self): was doing too many things so we broke it in 2
+    #creating the new def _eh_socio(self) method only to verify if the user is a director the code broke but it's fine now
+    #we also improved the sintax of the code writting less code and doing more with it and we made it in a more Pythonic way
+
+    def _eh_socio(self):
+       #this is a more pythonic way of implementing What I had done below it verifies itself if that's True and if so
+       #returns True instead of using the if else I had used
+       sobrenomes = ['Bragança', 'Windsor', 'Bourbon', 'Yamato', 'Al Saud', 'Khan', 'Tudor', 'Ptolomeu']
+       return self._salario >= 100000 and (self.sobrenome() in sobrenomes)
+
+       #old implementation using if and else
+        # if self._salario >= 100000 and (self.sobrenome() in sobrenomes): #to verify if salary >= 100000 and lastname included in the lastname list
+        #     return True
+        # else:
+        #     return False
+
+    
     def decrescimo_salario(self):
-        sobrenomes = ['Bragança', 'Windsor', 'Bourbon', 'Yamato', 'Al Saud', 'Khan', 'Tudor', 'Ptolomeu']
-        if self._salario >= 100000 and (self.sobrenome() in sobrenomes): #to verify if salary >= 100000 and lastname included in the lastname list
-            decrescimo = self._salario * 0.1
-            self._salario = self._salario - decrescimo
+           #old implementation using == True I improved that using only if self._eh_socio():
+           # if self._eh_socio() == True: 
+             if self._eh_socio():       
+              decrescimo = self._salario * 0.1
+              self._salario = self._salario - decrescimo
  
 #Funcao __str__ que devolve as informacoes completas do objeto quando agente cria
 

@@ -1,4 +1,68 @@
 from bytebank import Funcionario
+
+#Segundo teste a ser realizado testando o metodo calcular_bonus()
+
+ana = Funcionario('Ana','12/03/1997',100000000)
+
+print(ana.calcular_bonus())
+
+#Rodamos o novo metodo calcular_bonus() com a exception que nos criamos e ele nos retornou ela
+
+# (venv) PS C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd> & "c:/Users/marci/OneDrive/AREA DE TRABALHO 2022-01-10/py_test_tdd/venv/Scripts/python.exe" "c:/Users/marci/OneDrive/AREA DE TRABALHO 2022-01-10/py_test_tdd/pyfolder/codigo/main.py"
+# Traceback (most recent call last):
+#   File "c:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd\pyfolder\codigo\main.py", line 7, in <module>
+#     print(ana.calcular_bonus())
+#   File "c:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd\pyfolder\codigo\bytebank.py", line 68, in calcular_bonus
+#     raise Exception('O salario e muito alto para receber um bonus') #here we created our exception
+# Exception: O salario e muito alto para receber um bonus
+
+
+
+
+
+#esse print aqui vai nos indicar um syntax error que e mostrado abaixo
+#quando agente erra na propria linguagem
+
+# print('evfvf'))
+
+# (venv) PS C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd> & "c:/Users/marci/OneDrive/AREA DE TRABALHO 2022-01-10/py_test_tdd/venv/Scripts/python.exe" "c:/Users/marci/OneDrive/AREA DE TRABALHO 2022-01-10/py_test_tdd/pyfolder/codigo/main.py"
+#   File "c:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd\pyfolder\codigo\main.py", line 9
+#     print('evfvf'))
+#                   ^
+# SyntaxError: unmatched ')'
+
+# um outro tipo de error que tambem podemos ter e por exemplo
+
+#print(0/0)
+
+# (venv) PS C:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd> & "c:/Users/marci/OneDrive/AREA DE TRABALHO 2022-01-10/py_test_tdd/venv/Scripts/python.exe" "c:/Users/marci/OneDrive/AREA DE TRABALHO 2022-01-10/py_test_tdd/pyfolder/codigo/main.py"
+# Traceback (most recent call last):
+#   File "c:\Users\marci\OneDrive\AREA DE TRABALHO 2022-01-10\py_test_tdd\pyfolder\codigo\main.py", line 22, in <module>
+#     print(0/0)
+# ZeroDivisionError: division by zero
+
+# ZeroDivisionError: division by zero e um runtime error quando acontece um erro na logica do que agente ta fazendo
+#uma exception um erro na logica de uma excecao alguma coisa que ta acontecendo e existe tambem uma forma
+#da gente criar exceptions personalizadas que agente mesmo impoe e agente faz isso em varias linguagens de programacao
+#e no python tbm nao eh diferente e existe muitas vantagens em fazer isso uma delas eh explicar o pq nao se pode fazer isso
+# que esta se tentando fazer o famoso raise Exception
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Primeiro teste realizado
+
 #acima importamos a Class Funcionario de bytebank.py
 
 #E agora vamos criar/estanciar um objeto da Class Funcionario
@@ -6,7 +70,7 @@ from bytebank import Funcionario
 #Setamos a String 'Lucas Carvalho' como o nome do funcionario, 2000 como o ano de nascimento
 #e o salario inicial dele de 1000 reais
 
-lucas = Funcionario('Lucas Carvalho','13/03/2000',1000)
+# lucas = Funcionario('Lucas Carvalho','13/03/2000',1000)
 
 #agora vamos printar para visualizar Lucas
 #e funcionou Funcionario(Lucas Carvalho, 2000, 1000)
@@ -41,15 +105,15 @@ lucas = Funcionario('Lucas Carvalho','13/03/2000',1000)
 
 #vamos criar o metodo def test_idade() e vou instanciar um novo funcionario dentro do metodo
 
-def teste_idade():
-    funcionario_teste = Funcionario('Teste','13/03/2000',1111)
-    print(f'Teste = {funcionario_teste.idade()}')
-#inclusive poderia testar outros cenarios tbm
-    funcionario_teste1 = Funcionario('Teste','13/03/1999',1111)
-    print(f'Teste = {funcionario_teste1.idade()}')
-#e agora vou criar uma outra situacao em que nao apenas o ano muda mas o mes tbm
-    funcionario_teste2 = Funcionario('Teste','01/12/1999',1111)
-    print(f'Teste = {funcionario_teste2.idade()}')
+# def teste_idade():
+#     funcionario_teste = Funcionario('Teste','13/03/2000',1111)
+#     print(f'Teste = {funcionario_teste.idade()}')
+# #inclusive poderia testar outros cenarios tbm
+#     funcionario_teste1 = Funcionario('Teste','13/03/1999',1111)
+#     print(f'Teste = {funcionario_teste1.idade()}')
+# #e agora vou criar uma outra situacao em que nao apenas o ano muda mas o mes tbm
+#     funcionario_teste2 = Funcionario('Teste','01/12/1999',1111)
+#     print(f'Teste = {funcionario_teste2.idade()}')
 #Beleza os testes funcionaram o Python mostrou os resultados para nos mas o problema e que isso acaba ficando muito extenso
 #quando nos queremos testar muitos scenarios fica estranho colocar isso direto em um arquivo para isso existe uma ferramenta que vai
 #melhorar a construcoes dos nossos testes e essa ferramenta no caso se chama Pytest e vamos comecar ver isso mais a fundo
@@ -66,7 +130,7 @@ def teste_idade():
 #e com isso ja temos um teste automatizado que esta dentro do metodo acima como podemos ver
 # poderiamos inclusive implementar outras logicas mirabolantes para testar o codigo da Dominique#
 
-teste_idade()
+# teste_idade()
 #chamando o teste para testar
 #Teste = 23 Funcionou!
     
